@@ -1,7 +1,7 @@
-from fastapi.testclient import fastapi
-from ..main import app
+from fastapi.testclient import TestClient
+from app.main import app
 
-client = fastapi.TestClient(app)
+client = TestClient(app)
 
 def test_read_root():
     response = client.get("/")
@@ -15,7 +15,7 @@ def test_health_check():
 
 def test_health_check_response_time():
     response = client.get("/health")
-    assert response.elapsed.total_seconds() < 1  # Should respond under 1 second
+    assert response.elapsed.total_seconds() < 1 
 
 def test_invalid_route():
     response = client.get("/invalid")
