@@ -1,6 +1,11 @@
 venv/
 __pycache__/
 *.pyc
+**/.terraform
+**/*.tfplan
 .terraform/
 *.tfstate
 *.tfstate.backup
+terraform/outputs/
+sensitive-*.txt
+infrastructure-*.txt
